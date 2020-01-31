@@ -51,8 +51,8 @@ class ReadingFromFile{
         for(String pair: unformattedFile){
             
             splitted = pair.trim().split("\\|");
-            countries.add(splitted[0]);
-            capitals.add(splitted[1]);
+            countries.add(splitted[0].trim());
+            capitals.add(splitted[1].trim());
             
         }
     }
