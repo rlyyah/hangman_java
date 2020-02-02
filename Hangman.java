@@ -29,6 +29,7 @@ public class Hangman {
 
         lettersToGuess = new HashSet<>();
         lettersGuessed = new HashSet<>();
+        
 
         for(int i =0; i<password.length();i++){
             if(!Character.isWhitespace(password.charAt(i))){
@@ -41,9 +42,23 @@ public class Hangman {
 
        
     public String getInput(){
-        System.out.println("Enter a character or a whole word");
-        Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+        String input = null;
+        boolean askForLetter = true;
+        do{
+            System.out.println("Please enter an English character or a whole word");
+
+                Scanner in = new Scanner(System.in);
+                input = in.nextLine();
+
+            
+            for(char c: alphabet){
+                if(c==input.charAt(0)){
+                    askForLetter = false;
+                    break;
+                }
+            }
+        }while(askForLetter);
         System.out.println("Entered: " + input);
         return input;
     }
